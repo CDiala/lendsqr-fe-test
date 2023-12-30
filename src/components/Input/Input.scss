@@ -1,0 +1,49 @@
+.ls_input-container {
+  align-items: center;
+  background: #fff;
+  border-radius: 0.3125rem;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+
+  &.ls_pad-small {
+    height: 2.5rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  &.ls_pad-large {
+    height: 3.125rem;
+    padding: 0.93rem 1rem;
+  }
+
+  &:focus-visible,
+  &:focus-within {
+    border-color: rgba(57, 205, 204, 1);
+  }
+
+  .ls_input {
+    border: none;
+    color: #545f7d;
+    font-family: Avenir Next;
+    font-size: 0.875rem;
+    font-weight: 400;
+    width: 100%;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .ls_password__toggler {
+    align-items: center;
+    color: #39cdcc;
+    cursor: pointer;
+    display: flex;
+    font-family: Avenir Next;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+  }
+}
