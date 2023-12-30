@@ -1,0 +1,23 @@
+.ls_button {
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-width: 2px;
+  font-family: Avenir Next;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.0875rem;
+  text-align: center;
+  width: 100%;
+
+  &.ls_button-small {
+    height: 2.5rem;
+  }
+
+  &.ls_button-large {
+    height: 3rem;
+  }
+
+  &.transform-text {
+    text-transform: uppercase;
+  }
+}
