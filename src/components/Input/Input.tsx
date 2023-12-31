@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useState } from "react";
 import "./Input.scss";
 
 export default function Input({
@@ -10,11 +10,7 @@ export default function Input({
   placeholder: string;
   size: string;
 }) {
-  const [hidePassword, setHidePassword] = useState(true);
-
-  useEffect(() => {
-    console.log("rerendered");
-  }, [hidePassword]);
+  const [hidePassword, setHidePassword] = useState(type === "password");
 
   function togglePasswordDisplay(e: MouseEvent) {
     e.stopPropagation();
@@ -29,7 +25,7 @@ export default function Input({
     >
       <input
         className={`ls_input`}
-        type={hidePassword ? "password" : "type"}
+        type={hidePassword ? "password" : "text"}
         placeholder={placeholder}
       />
       {type === "password" && (
