@@ -1,35 +1,32 @@
+import React, { useMemo } from "react";
 import "./Button.scss";
 
-/**
- *
- * @param color
- * @returns
- */
-export default function Button({
-  color,
-  type,
-  text,
-  transform,
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  block?: boolean;
+  children: React.ReactNode;
+  size: "sm" | "md" | "lg";
+  theme:
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "primary-outline"
+    | "secondary-outline"
+    | "danger-outline";
+}
+
+export const Button: React.FunctionComponent<ButtonProps> = ({
+  block,
+  children,
   size,
-}: {
-  color: string;
-  type: string;
-  text: string;
-  transform?: boolean;
-  size?: string;
-}) {
+  theme,
+}) => {
+  const buttonWidth = useMemo(() => {
+    return block ? "w-full" : "w-fit";
+  }, [block]);
+
   return (
-    <button
-      style={{
-        borderColor: color,
-        backgroundColor: type !== "outline" ? color : "transparent",
-        color: type === "outline" ? color : "white",
-      }}
-      className={`ls_button ${transform && "transform-text"} ${
-        size ? "ls_button-small" : "ls_button-large"
-      }`}
-    >
-      {text}
+    <button className={`button ${buttonWidth} button-${size} button-${theme}`}>
+      {children}
     </button>
   );
-}
+};
