@@ -1,18 +1,20 @@
 import { FunctionComponent } from "react";
-import Input from "../../components/Input/Input";
-import { Button } from "../../components";
+// import Input from "../../components/Input/Input";
+import { Button, Input } from "../../components";
 import logo from "../../assets/images/ls_logo.svg";
 import loginImage from "../../assets/images/ls_login_image.svg";
 import "./Login.scss";
-import { Formik } from "formik";
+import { useFormik } from "formik";
+import { loginSchema } from "../../validations/auth";
 
 interface LoginProps {}
-interface IError {
-  email: string;
-}
 
 const Login: FunctionComponent<LoginProps> = () => {
-  function handleSubmit() {}
+  const { values, handleChange, errors, handleSubmit } = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: loginSchema,
+    onSubmit: () => {},
+  });
 
   return (
     <main className="grid md:grid-cols-2 grid-cols-1 w-screen h-screen">
@@ -34,54 +36,34 @@ const Login: FunctionComponent<LoginProps> = () => {
             <p className="login-note">Enter details to login.</p>
           </div>
 
-          <Formik
-            initialValues={{ email: "", password: "" }}
-            validate={(values) => {
-              const errors: IError = {
-                email: "",
-              };
-              if (!values.email) {
-                errors.email = "Required";
-              } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-              ) {
-                errors.email = "Invalid email address";
-              }
-              return errors;
-            }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
-            }}
-          >
-            {() => (
-              <form onSubmit={handleSubmit}>
-                <div>
-                  <div className="form">
-                    <Input
-                      type={"email"}
-                      placeholder={"Email"}
-                      size={"large"}
-                    ></Input>
-                    <Input
-                      type={"password"}
-                      placeholder={"Password"}
-                      size={"large"}
-                    ></Input>
-                    <span className="reset-password">FORGOT PASSWORD</span>
-                    <Button
-                      block
-                      children={"LOG IN"}
-                      size={"lg"}
-                      theme={"primary"}
-                    ></Button>
-                  </div>
-                </div>
-              </form>
-            )}
-          </Formik>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <div className="form">
+                <Input
+                  type={"email"}
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  placeholder={"Email"}
+                  size={"large"}
+                  error={errors.email as string}
+                />
+                <Input
+                  type={"password"}
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  placeholder={"Password"}
+                  size={"large"}
+                  error={errors.password as string}
+                ></Input>
+                <span className="reset-password">FORGOT PASSWORD</span>
+                <Button type="submit" block size={"lg"} theme={"primary"}>
+                  LOG IN
+                </Button>
+              </div>
+            </div>
+          </form>
         </div>
       </section>
     </main>
