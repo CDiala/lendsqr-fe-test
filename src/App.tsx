@@ -1,13 +1,8 @@
 import "./App.scss";
+import Login from "./pages/Login/Login";
 
 function App() {
-  return (
-    <>
-      <div className="main-box">
-        <p className="text-3xl font-bold underline sub-text">Hello world!</p>
-      </div>
-    </>
-  );
+  return <Login></Login>;
 }
 
 export default App;

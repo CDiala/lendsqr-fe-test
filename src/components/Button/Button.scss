@@ -1,0 +1,55 @@
+.button {
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+
+  &.button-sm {
+    padding: 0.72rem 1.84rem;
+  }
+
+  &.button-md {
+    padding: 0.72rem 1rem;
+  }
+
+  &.button-lg {
+    padding: 0.88rem;
+  }
+
+  &.button-primary {
+    background-color: rgba(57, 205, 204, 1);
+    border-color: rgba(57, 205, 204, 1);
+    color: white;
+  }
+
+  &.button-secondary {
+    background-color: rgba(84, 95, 125, 1);
+    border-color: rgba(84, 95, 125, 1);
+    color: white;
+  }
+
+  &.button-danger {
+    background-color: rgba(228, 3, 59, 1);
+    border-color: rgba(228, 3, 59, 1);
+    color: white;
+  }
+
+  &.button-primary-outline {
+    background-color: transparent;
+    border-color: rgba(57, 205, 204, 1);
+    color: rgba(57, 205, 204, 1);
+  }
+
+  &.button-secondary-outline {
+    background-color: transparent;
+    border-color: rgba(84, 95, 125, 1);
+    color: rgba(84, 95, 125, 1);
+  }
+
+  &.button-danger-outline {
+    background-color: transparent;
+    border-color: rgba(228, 3, 59, 1);
+    color: rgba(228, 3, 59, 1);
+  }
+}
