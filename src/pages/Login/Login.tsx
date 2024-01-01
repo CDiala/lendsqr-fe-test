@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-// import Input from "../../components/Input/Input";
 import { Button, Input } from "../../components";
 import logo from "../../assets/images/ls_logo.svg";
 import loginImage from "../../assets/images/ls_login_image.svg";
